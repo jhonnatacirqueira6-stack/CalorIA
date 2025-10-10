@@ -1,0 +1,60 @@
+{
+  "name": "CalorIA - Calcule suas calorias com IA",
+  "short_name": "CalorIA",
+  "description": "Monitore suas calorias e macros com inteligência artificial. Tire uma foto ou descreva sua refeição e o CalorIA calcula tudo para você!",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/IMG_8566.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/IMG_8567.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/IMG_8568.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/IMG_8571.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/IMG_8573.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FF6A00",
+  "background_color": "#FFFFFF",
+  "orientation": "portrait",
+  "scope": ".",
+  "id": "caloria.app",
+  "lang": "pt-BR",
+  "categories": [
+    "fitness",
+    "food",
+    "health"
+  ],
+  "display_override": [
+    "window-controls-overlay"
+  ]
+}
