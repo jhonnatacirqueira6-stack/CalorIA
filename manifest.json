@@ -15,13 +15,33 @@
     }
   ],
   "screenshots": [
-    { "src": "/IMG_8566.png", "sizes": "1080x1920", "type": "image/png" },
-    { "src": "/IMG_8567.png", "sizes": "1080x1920", "type": "image/png" },
-    { "src": "/IMG_8568.png", "sizes": "1080x1920", "type": "image/png" },
-    { "src": "/IMG_8571.png", "sizes": "1080x1920", "type": "image/png" },
-    { "src": "/IMG_8573.png", "sizes": "1080x1920", "type": "image/png" }
+    {
+      "src": "/IMG_8566.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "/IMG_8567.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "/IMG_8568.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "/IMG_8571.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    },
+    {
+      "src": "/IMG_8573.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
   ],
-  "start_url": "/",
+  "start_url": "https://calor-iaapp.vercel.app/",
   "display": "standalone",
   "theme_color": "#FF6A00",
   "background_color": "#FFFFFF",
@@ -29,6 +49,52 @@
   "scope": "/",
   "id": "caloria.app",
   "lang": "pt-BR",
-  "categories": ["fitness", "food", "health"],
-  "display_override": ["window-controls-overlay"]
+  "categories": [
+    "fitness",
+    "food",
+    "health"
+  ],
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "",
+      "url": "https://drive.google.com/file/d/19nPK3Ex1vMbcCCSrW4j8_T1hmD4E-ohR/view?usp=sharing",
+      "description": ""
+    },
+    {
+      "name": "",
+      "url": "https://drive.google.com/file/d/1Klt3M0YEPOK7USfpKiCpHmFUF9RJspwH/view?usp=sharing",
+      "description": ""
+    },
+    {
+      "name": "",
+      "url": "https://drive.google.com/file/d/1UnXFPVD-YICqqH6PL8llSR-ogDYq0Pr8/view?usp=sharing",
+      "description": ""
+    },
+    {
+      "name": "",
+      "url": "https://drive.google.com/file/d/1CTXFWUz2p4hy2cNNgPBJEE28y4XPj0Zy/view?usp=sharing",
+      "description": ""
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.myfitnesspal.android&amp;hl=pt_BR",
+      "id": ""
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.yazio.android&amp;hl=pt_BR",
+      "id": ""
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.kaloria.app&amp;hl=pt_BR",
+      "id": ""
+    }
+  ]
 }
