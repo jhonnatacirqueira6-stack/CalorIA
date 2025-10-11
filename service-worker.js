@@ -1,54 +1,35 @@
-const CACHE_NAME = 'caloria-cache-v3';
-const FILES_TO_CACHE = [
+
+const CACHE_NAME = 'caloria-fast-cache-v1';
+const OFFLINE_URL = '/offline.html';
+const TO_CACHE = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/offline.html',
   '/icon-192x192.png',
-  '/icon-512x512.png',
-  '/premium-sucesso.html',
-  '/premium-cancelado.html',
-  '/main.js'
+  '/icon-512x512.png'
 ];
 
-self.addEventListener('install', (event) => {
-  console.log('[ServiceWorker] Instalando e armazenando conteúdo offline...');
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(FILES_TO_CACHE);
-    })
-  );
-  self.skipWaiting();
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(TO_CACHE)).then(() => self.skipWaiting()));
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('[ServiceWorker] Ativando e limpando caches antigos...');
-  event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('[ServiceWorker] Removendo cache antigo:', key);
-            return caches.delete(key);
-          }
-        })
-      );
-    })
-  );
-  self.clients.claim();
+self.addEventListener('activate', (e) => {
+  e.waitUntil(clients.claim());
 });
 
-// Fetch - network first, fallback to cache (mirror behaviour)
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        // put a clone in cache
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseClone);
-        });
-        return response;
-      })
-      .catch(() => caches.match(event.request).then((resp) => resp || caches.match('/index.html')))
-  );
+self.addEventListener('fetch', (e) => {
+  // Only handle navigation requests and same-origin assets
+  if (e.request.mode === 'navigate') {
+    e.respondWith(fetch(e.request).catch(()=>caches.match(OFFLINE_URL)));
+    return;
+  }
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).then(res => {
+    // cache same-origin responses
+    if (res && res.type === 'basic') {
+      const resClone = res.clone();
+      caches.open(CACHE_NAME).then(cache => cache.put(e.request, resClone));
+    }
+    return res;
+  }).catch(()=>caches.match(e.request))));
 });
