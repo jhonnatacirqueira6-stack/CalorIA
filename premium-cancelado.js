@@ -1,0 +1,1 @@
+export default (req,res)=>{ res.setHeader('Content-Type','text/html'); res.end('<h1>Pagamento cancelado</h1>'); }

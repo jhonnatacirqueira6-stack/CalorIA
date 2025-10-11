@@ -1,20 +1,10 @@
 {
-  "name": "CalorIA - Calcule suas calorias com IA",
+  "name": "CalorIA - Inteligência Nutricional",
   "short_name": "CalorIA",
-  "description": "Monitore suas calorias, proteínas e macros com inteligência artificial. Tire uma foto ou descreva sua refeição e o CalorIA calcula automaticamente.",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait",
   "theme_color": "#FF6A00",
-  "background_color": "#FFFFFF",
-  "scope": "/",
-  "lang": "pt-BR",
-  "categories": [
-    "health",
-    "fitness",
-    "food",
-    "productivity"
-  ],
+  "background_color": "#fff",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -26,49 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "https://calor-ia-1eab0949.base44.app/screenshot1.png",
-      "sizes": "1080x1920",
-      "type": "image/png"
-    },
-    {
-      "src": "https://calor-ia-1eab0949.base44.app/screenshot2.png",
-      "sizes": "1080x1920",
-      "type": "image/png"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Nova refeição",
-      "short_name": "Nova",
-      "url": "/nova",
-      "icons": [
-        {
-          "src": "/icon-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Histórico",
-      "short_name": "Histórico",
-      "url": "/historico",
-      "icons": [
-        {
-          "src": "/icon-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
-  "related_applications": [
-    {
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.seuapp.caloria",
-      "id": "com.seuapp.caloria"
-    }
-  ],
-  "prefer_related_applications": false
+  ]
 }

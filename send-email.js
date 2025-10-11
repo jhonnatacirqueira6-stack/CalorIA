@@ -1,0 +1,18 @@
+// /api/send-email.js
+import sgMail from '@sendgrid/mail';
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+export default async function handler(req,res){
+  if(req.method!=='POST') return res.status(405).end();
+  try{
+    const {type,email,nome,app_url}=req.body||{};
+    let subject='CalorIA'; let html='<p>Notificação CalorIA</p>';
+    if(type==='welcome'){subject='🎉 Bem-vindo ao CalorIA'; html = "<!doctype html><html><head><meta charset=\"utf-8\"><title>Bem-vindo</title></head><body style=\"font-family:Arial,Helvetica,sans-serif;color:#222\"><table width=\"100%\"><tr><td align=\"center\"><div style=\"max-width:600px;background:#fff;padding:24px;border-radius:8px;border:1px solid #eee\"><h2 style=\"color:#ff6a00\">\ud83c\udf89 Bem-vindo ao CalorIA</h2><p>Ol\u00e1 {{nome}},</p><p>Obrigado por experimentar o <strong>CalorIA</strong> \u2014 sua IA de nutri\u00e7\u00e3o e performance.</p><p style=\"text-align:center\"><a href=\"{{app_url}}\" style=\"background:#ff6a00;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none\">Abrir CalorIA</a></p><p style=\"font-size:12px;color:#777\">Atenciosamente,<br>CalorIA - Intelig\u00eancia Nutricional</p></div></td></tr></table></body></html>";}
+    if(type==='report'){subject='📄 Seu relatório está pronto'; html = "<!doctype html><html><head><meta charset=\"utf-8\"><title>Relat\u00f3rio pronto</title></head><body style=\"font-family:Arial,Helvetica,sans-serif;color:#222\"><table width=\"100%\"><tr><td align=\"center\"><div style=\"max-width:600px;padding:20px;border-radius:8px;border:1px solid #eee;background:#fff\"><h2 style=\"color:#ff6a00\">\ud83d\udcc4 Seu relat\u00f3rio est\u00e1 pronto</h2><p>Ol\u00e1 {{nome}},</p><p>Seu relat\u00f3rio gratuito foi gerado. Quer liberar a vers\u00e3o completa com gr\u00e1ficos, recomenda\u00e7\u00f5es e PDF profissional?</p><p style=\"text-align:center\"><a href=\"https://buy.stripe.com/3cI14m6dsb3zbl14Br53O01\" style=\"background:#ff6a00;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none\">Liberar vers\u00e3o Premium</a></p><p style=\"font-size:12px;color:#777\">Se preferir, responda este e-mail e ajudamos voc\u00ea pessoalmente.</p></div></td></tr></table></body></html>";}
+    if(type==='remarketing'){subject='⚡ Oferta Premium — 20% OFF'; html = "<!doctype html><html><head><meta charset=\"utf-8\"><title>Oferta Premium</title></head><body style=\"font-family:Arial,Helvetica,sans-serif;color:#222\"><table width=\"100%\"><tr><td align=\"center\"><div style=\"max-width:600px;padding:20px;border-radius:8px;border:1px solid #eee;background:#fff\"><h2 style=\"color:#ff6a00\">\u26a1 Oferta exclusiva: 20% OFF</h2><p>Ol\u00e1 {{nome}},</p><p>Vimos que voc\u00ea gerou um relat\u00f3rio, mas ainda n\u00e3o liberou a vers\u00e3o Premium. Por tempo limitado oferecemos 20% OFF.</p><p style=\"text-align:center\"><a href=\"https://buy.stripe.com/3cI14m6dsb3zbl14Br53O01\" style=\"background:#ff6a00;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none\">Ativar Premium - 20% OFF</a></p><p style=\"font-size:12px;color:#777\">Oferta v\u00e1lida at\u00e9 hoje. N\u00e3o perca!</p></div></td></tr></table></body></html>";}
+    const baseUrl = app_url || (process.env.APP_URL || 'https://calor-ia-1eab0949.base44.app');
+    html = html.replace('{{nome}}', nome||'Usuário').replace('{{app_url}}', baseUrl);
+    const msg = { to: email, from: process.env.SENDGRID_FROM || 'no-reply@calor-ia-1eab0949.base44.app', subject, html };
+    await sgMail.send(msg);
+    res.json({ok:true});
+  }catch(e){ console.error(e); res.status(500).json({error:e.message}); }
+}

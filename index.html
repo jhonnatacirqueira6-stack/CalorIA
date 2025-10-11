@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CalorIA</title>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#FF6A00">
-  <style>
-    html,body{height:100%;margin:0;font-family:sans-serif;background:#fff;display:flex;align-items:center;justify-content:center}
-    .msg{text-align:center}
-  </style>
-</head>
-<body>
-  <div class="msg">
-    <img src="/icon-192x192.png" alt="CalorIA" style="width:96px;margin-bottom:12px">
-    <div>Carregando CalorIA...</div>
-  </div>
-
-  <script>
-    (function(){
-      const target = "https://calor-ia-1eab0949.base44.app/";
-      if (!navigator.onLine) {
-        window.location.href = '/offline.html';
-        return;
-      }
-      setTimeout(()=>{ window.location.replace(target); }, 100);
-    })();
-  </script>
-</body>
-</html>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>CalorIA - Inteligência Nutricional</title><link rel="manifest" href="/manifest.json"></head>
+<body style="font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:24px auto;text-align:center">
+  <img src="/icon-192x192.png" alt="CalorIA" style="width:96px;margin-bottom:12px">
+  <h1>CalorIA - Inteligência Nutricional</h1>
+  <p>App demo: geração de relatório profissional, assinatura Premium e remarketing por e-mail.</p>
+  <p><a href="https://buy.stripe.com/3cI14m6dsb3zbl14Br53O01">💳 Assinar Premium</a></p>
+  <p><button id="btn-generate">Gerar Relatório (Premium)</button></p>
+  <p><button id="btn-send-welcome">Enviar Boas-vindas (teste)</button> <button id="btn-send-report">Enviar Relatório (teste)</button> <button id="btn-send-remark">Enviar Remarketing (teste)</button></p>
+  <p id="status" style="color:#666"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+<script src="/main.js"></script><script src="/report.js"></script></body></html>

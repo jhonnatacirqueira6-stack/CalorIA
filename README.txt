@@ -1,1 +1,1 @@
-Configured to redirect quickly to https://calor-ia-1eab0949.base44.app/ with 100ms minimal delay; includes service worker and offline fallback.
+CALOR_IA_TOTAL_SUITE - README: deploy on Vercel. Set ENV: SENDGRID_API_KEY, SENDGRID_FROM, STRIPE_KEY, APP_URL.
