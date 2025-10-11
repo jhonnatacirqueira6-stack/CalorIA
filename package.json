@@ -1,14 +1,11 @@
 {
-  "name": "calor_ia_total_suite",
+  "name": "calor_ia_push_onesignal_final",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "vercel dev"
   },
   "dependencies": {
-    "@sendgrid/mail": "^7.7.0",
-    "formidable": "^2.0.1",
-    "stripe": "^11.0.0",
-    "pdf-lib": "^1.17.1"
+    "@sendgrid/mail": "^7.7.0"
   }
 }

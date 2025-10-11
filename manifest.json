@@ -1,10 +1,13 @@
 {
   "name": "CalorIA - Inteligência Nutricional",
   "short_name": "CalorIA",
+  "description": "Monitore suas calorias e macros com inteligência artificial.",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "theme_color": "#FF6A00",
-  "background_color": "#fff",
+  "background_color": "#FFFFFF",
+  "lang": "pt-BR",
   "icons": [
     {
       "src": "/icon-192x192.png",
