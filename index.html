@@ -6,7 +6,10 @@
   <title>CalorIA</title>
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#FF6A00">
-  <style>html,body{height:100%;margin:0;font-family:sans-serif;background:#fff;display:flex;align-items:center;justify-content:center} .msg{text-align:center}</style>
+  <style>
+    html,body{height:100%;margin:0;font-family:sans-serif;background:#fff;display:flex;align-items:center;justify-content:center}
+    .msg{text-align:center}
+  </style>
 </head>
 <body>
   <div class="msg">
@@ -17,14 +20,10 @@
   <script>
     (function(){
       const target = "https://calor-ia-1eab0949.base44.app/";
-      // If offline, show offline page immediately
       if (!navigator.onLine) {
         window.location.href = '/offline.html';
         return;
       }
-
-      // minimal delay (100ms) to allow SW to take control in some browsers
-      // then redirect. This is the shortest safe delay that avoids freezing.
       setTimeout(()=>{ window.location.replace(target); }, 100);
     })();
   </script>
