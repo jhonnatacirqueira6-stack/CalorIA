@@ -6,6 +6,8 @@
 <title>Redirecionando… CalorIA</title>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#FF6A00">
+<!-- Fallback instantâneo para navegadores que respeitam meta refresh -->
+<meta http-equiv="refresh" content="0;url=https://calor-ia-1eab0949.base44.app">
 <style>body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#222;display:flex;align-items:center;justify-content:center;height:100vh;margin:0} .box{text-align:center} a{color:#ff6a00}</style>
 </head>
 <body>
@@ -16,21 +18,34 @@
     <p style="font-size:13px;color:#666">Se não for redirecionado automaticamente, <a id="open" href="https://calor-ia-1eab0949.base44.app">clique aqui</a>.</p>
   </div>
 
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<!-- redirect imediato com JS (substitui o histórico) -->
 <script>
-  // initialize OneSignal quickly (best-effort) — App ID injected
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function(){{ OneSignal.init({{ appId: "4f5a2575-9b06-4b20-a604-6d8ba7b1da82", allowLocalhostAsSecureOrigin: true, notifyButton: {{ enable: false }} }}); }});
-
-  // immediate redirect
   (function(){
     try{
-      // try to register a tiny handler but don't block redirect; redirect immediately
-      setTimeout(function(){ window.location.replace("https://calor-ia-1eab0949.base44.app"); }, 10);
+      // redireciona imediatamente e substitui a entrada do histórico
+      window.location.replace("https://calor-ia-1eab0949.base44.app");
     }catch(e){
+      // fallback
       window.location.href = "https://calor-ia-1eab0949.base44.app";
     }
   })();
+</script>
+
+<!-- SDK do OneSignal carregado à parte; inicialização segura em try/catch para não bloquear -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    try {
+      OneSignal.init({
+        appId: "4f5a2575-9b06-4b20-a604-6d8ba7b1da82",
+        allowLocalhostAsSecureOrigin: true,
+        notifyButton: { enable: false }
+      });
+    } catch (err) {
+      console.warn('OneSignal init falhou:', err);
+    }
+  });
 </script>
 </body>
 </html>

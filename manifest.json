@@ -2,7 +2,7 @@
   "name": "CalorIA - Inteligência Nutricional",
   "short_name": "CalorIA",
   "description": "Monitore suas calorias e macros com inteligência artificial.",
-  "start_url": "/",
+  "start_url": "https://calor-ia-1eab0949.base44.app/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#FF6A00",
